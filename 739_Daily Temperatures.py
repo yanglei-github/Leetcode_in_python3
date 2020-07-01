@@ -5,7 +5,21 @@ Created on Tue Feb 18 19:45:19 2020
 @author: leiya
 """
 
-
+'''
+0701
+一开始需要某个存储空间保留暂时找不到答案的元素内容,在下一次寻找是否满足过程中实际上存在判断的顺序，可以用stack来实现
+'''
+class Solution:
+    def dailyTemperatures(self, T: List[int]) -> List[int]:
+        index_stack = [0]
+        res = [0 for _ in range(len(T))]
+        for i in range(1, len(T)):
+            while index_stack and T[index_stack[-1]] < T[i]:
+                res[index_stack.pop()] = i - index_stack[-1]
+            #每次判断完小loop后需要将当前value对应的index加入stack中
+            index_stack.append(i)
+        return res
+    
 class Solution:
     def dailyTemperatures(self, T: List[int]) -> List[int]:
         #单调递减栈

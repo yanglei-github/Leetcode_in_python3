@@ -4,6 +4,28 @@ Created on Mon Aug 26 19:25:08 2019
 
 @author: leiya
 """
+
+'''
+0701:
+    1.stack如果没有的情况需要特殊判断，比如说当前s[i]不再adict中但是stack中又没有东西，那么明显错了
+    2.最后遍历完s后stack里有东西也不行，相当于没有匹配完全
+'''
+class Solution:
+    def isValid(self, s: str) -> bool:
+        #stack
+        adict = {'(':')','{':'}','[':']'}
+        stack = []
+        for i in range(len(s)):
+            if s[i] in adict:
+                stack.append(s[i])
+            else:
+                if not stack or adict[stack.pop()] != s[i]:
+                    return False
+        if stack:
+            return False
+        return True
+
+
 #了解stack这个存储方式的优点
 class Solution:
     def isValid(self, s: str) -> bool:
