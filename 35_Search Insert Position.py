@@ -5,6 +5,8 @@ Created on Wed Aug 28 11:07:04 2019
 @author: leiya
 """
 
+#0702 即使目标值不存在需要插入，目标值也绝对不可能插入到比他小的value对应的index处,这会产生一个问题，那就是如果num最后一个数也小于target，那么需要返回的
+#index 在 nums中是找不到的，这个特殊情况需要单独处理
 #0620 updated:重新更新二分法模板，注意left = mid时需要向上取整即mid = (left+right+1) // 2,为了避免死循环出现
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:

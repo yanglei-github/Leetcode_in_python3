@@ -6,6 +6,7 @@ Created on Sun Jun 21 12:42:39 2020
 """
 
 #136异或问题的变体，区别在于这道题已经排好序，并且要求在logn内解决
+#为什么找偶数索引，因为正常来说一对一对构成的nums，偶数索引应该和后面的奇数索引构成一对，一旦他俩不等，说明结果肯定在该偶数index之前（包括该偶数）
 #实际上通过仅对偶数索引进行二分，我们实现了log(n/2) = logn
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:

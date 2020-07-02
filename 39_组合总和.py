@@ -14,6 +14,7 @@ Created on Fri Jun 12 19:54:01 2020
 
 '''
 0625 updated:start_index的重要性，第一次第一层找到一个数之后，在第二次选取第一层数后，后面的递归应该都从这个数后的所有数中寻找解集
+0702 candidates[i] <= target 这里必须需要考虑等于的情况
 '''
 
 class Solution:
@@ -26,6 +27,7 @@ class Solution:
                 res.append(path[:])
                 return
             for i in range(start, len(candidates)):
+                #注意这里必须添加=号
                 if candidates[i] <= target:
                     path.append(candidates[i])
                     dfs(i,candidates,target-candidates[i],path,res)

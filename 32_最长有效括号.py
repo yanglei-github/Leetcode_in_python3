@@ -12,7 +12,6 @@ class Solution:
         dp = [0]*len(s)
         for i in range(1, len(s)):
             if s[i] == ")":
-                # 避免python负数的从后往前取值
                 if s[i - 1] == "(":
                     dp[i] = (dp[i - 2] if i >= 2 else 0 ) + 2
                 elif i - dp[i - 1] > 0 and s[i - dp[i - 1] - 1] == "(":

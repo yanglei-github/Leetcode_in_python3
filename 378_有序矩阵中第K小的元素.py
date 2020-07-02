@@ -28,8 +28,22 @@ class Solution(object):
                 else:
                     j -= 1
             return ans
+        #思路：左上角元素最小，右下角元素最大，计算小于等于中间值的元素个数
+        left = matrix[0][0]
+        right = matrix[-1][-1]
+
+        while left < right:
+            mid = (left+right) // 2
+            count = count_num(matrix,mid)
+            if count < k:
+                left = mid + 1
+            else:
+                right = mid
+        return left
         
-        #  思路：左上角元素最小，右下角元素最大，计算小于等于中间值的元素个数
+    
+    
+#method 2
         left = matrix[0][0]
         right = matrix[-1][-1]
         # 二分法查找，注意等号的存在

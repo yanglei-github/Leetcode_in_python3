@@ -5,6 +5,48 @@ Created on Sun Jun 21 19:34:21 2020
 @author: leiya
 """
 
+
+'''
+0702
+1. 左右逼近思路,这个思路之所以必要，是因为这道题相对于35题存在重复数字，一旦有两个重复数字88,我们必须明确该选重复数字中的左还是右
+选左就是右边逼近，因为舍弃了右边的重复数字, right = mid-1,选右就是左边逼近，因为舍弃了左边的重复数字，left = mid + 1
+可以假设现在只有两个重复数字构成的list，mid一开始指向左中位数，还是有中位数，但我们想要舍弃右边的重复数字时，相当于left=mid
+这个时候必须在一开始将mid指向右中位数，否则会有出现死循环的可能性
+
+2. nums如果为空的特殊情况需要提前判断
+
+3.二分查找不但要提前判断找的index是否在搜索范围内,还要判断最后在搜索范围内找到的唯一index对应的value是否符合要求
+
+'''
+
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        #明显遍历两次
+        res = [-1,-1]
+        if not nums:
+            return res
+        left = 0
+        right = len(nums) - 1
+        while left < right:
+            mid = (left+right) // 2
+            if nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid
+        if nums[left] != target:
+            return res
+        else:
+            res[0] = left
+        right = len(nums) - 1
+        while left < right:
+            mid = (left+right+1) // 2
+            if nums[mid] > target:
+                right = mid - 1
+            else:
+                left = mid
+        res[1] = left
+        return res
+    
 #只要有left-mid,就用left+right+1 // 2来解决out of range的问题
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:

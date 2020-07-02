@@ -4,7 +4,7 @@ Created on Sun Mar 29 06:40:31 2020
 
 @author: leiya
 """
-
+#由于在原有函数上直接写递归容易出现错误，所以最好单独写递归函数
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         def dfs(root):
