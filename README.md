@@ -7,4 +7,5 @@ The link is: https://space.bilibili.com/15965981
 
 Welcome to follow me or sumbit issues in this repo.
 
-Note: This repo will be updated everyday, which means new methods or comments will be added into older version files.
+Note:
+This repo will be updated everyday, which means new methods or comments will be added into older version files.
