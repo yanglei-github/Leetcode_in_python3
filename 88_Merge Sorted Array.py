@@ -6,6 +6,31 @@ Created on Wed Sep  4 09:29:08 2019
 """
 
 
+
+'''
+0702:从后向前比，即同时比两者最末尾的数，谁大谁放到nums1末尾0的位置上
+'''
+
+
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        total_size = len(nums1) - 1
+        n = n-1
+        m = m-1
+        while n >= 0:
+            while m >= 0 and nums1[m] > nums2[n]:
+                nums1[m],nums1[total_size] = nums1[total_size], nums1[m]
+                total_size -= 1
+                m -= 1
+            nums1[total_size] = nums2[n]
+            n -= 1
+            total_size -= 1
+            
+            
+            
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """

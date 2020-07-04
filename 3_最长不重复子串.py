@@ -4,6 +4,26 @@ Created on Wed Apr 15 12:11:33 2020
 
 @author: leiya
 """
+
+#0703，统一sliding window的模板，start,end一开始都是0,for end in range(len(s)),然后再需要改变窗口的时候改变start，end通过for自动改变
+'''
+0704:while小循环的的条件怎么选，通常选择可以移动start，即可以造成窗口收缩的条件，因为我们需要在小循环中进行窗口收缩，大循环可以自动扩张窗口，无须我们考虑
+'''
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        max_len = 0
+        start = 0
+        mark = set()
+        for window_end in range(len(s)):
+            while s[window_end] in mark:
+                #max_len = max(max_len,window_end-start)
+                mark.remove(s[start])
+                start += 1
+            mark.add(s[window_end])
+            max_len = max(max_len,window_end-start+1)
+        return max_len
+    
+    
 #0624
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:

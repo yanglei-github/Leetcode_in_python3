@@ -5,6 +5,22 @@ Created on Wed Sep  4 16:04:04 2019
 @author: leiya
 """
 
+'''
+0703 updated
+'''
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        if not nums:
+            return None
+        root_index = len(nums) // 2
+        root = TreeNode(nums[root_index])
+        left_node = self.sortedArrayToBST(nums[:root_index])
+        right_node = self.sortedArrayToBST(nums[root_index+1:])
+        root.left = left_node
+        root.right = right_node
+        return root
+    
+    
 #updated 0628
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
