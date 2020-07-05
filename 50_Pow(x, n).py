@@ -15,6 +15,7 @@ class Solution:
         if n < 0: 
             x, n = 1 / x, -n
         while n:
+            #使用与运算的时候默认就将n视为二进制了,不用做其他特殊操作
             if n & 1: 
                 res *= x
             #x *= x放到后面更新

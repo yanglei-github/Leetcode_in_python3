@@ -5,6 +5,10 @@ Created on Thu Feb 27 20:55:35 2020
 @author: leiya
 """
 
+'''
+0705
+写while循环的时候一定要手动更新while循环的条件，要不然很容易造成死循环
+'''
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
         res = ''

@@ -5,6 +5,8 @@ Created on Wed Feb  5 21:41:17 2020
 @author: leiya
 """
 
+
+#这道题的难点在于理解清楚实际上就是多给了以此判断机会
 #在判断回文串的基础上
 class Solution:
     def validPalindrome(self, s: str) -> bool:
