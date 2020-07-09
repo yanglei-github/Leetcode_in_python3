@@ -11,7 +11,8 @@ class Solution:
             return root
         if root is q or root is p:
             return root
-        
+        #最高层面上来看的话left中包含的是在root的左子树中p,q存在的最深层的公共祖先，也可能返回的就是p,q中一个node所在的位置，
+        #因为p,q可能在不同子树中
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
         if not left and not right:

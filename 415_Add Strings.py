@@ -30,4 +30,5 @@ class Solution:
             res += str(temp % 10)
             i -= 1
             j -= 1
+        #注意加完了以后要颠倒一下
         return res[::-1]

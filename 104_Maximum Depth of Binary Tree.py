@@ -4,7 +4,7 @@ Created on Wed Sep  4 15:26:08 2019
 
 @author: leiya
 """
-
+#dfs或者bfs找到最大层数即是最大深度
 
 # Definition for a binary tree node.
 # class TreeNode:

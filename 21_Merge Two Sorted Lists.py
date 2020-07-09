@@ -7,6 +7,7 @@ Created on Tue Aug 27 10:29:03 2019
 
 '''
 0626 updated:更新新的写法
+0709 l1,l2当前指向的位置是还没有比较的位置 -->参考88题
 '''
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:

@@ -11,6 +11,7 @@ class Solution:
         #quick sort从大到小排序
         def quick_sort(nums,head,tail):
             if head >= tail:
+                #真正写quick_sort的时候这里需要返回Nums
                 return nums
             #为了避免nums本身有序导致快排失效，partition起到不应该有的分而治之，减治的效果，时间复杂度降至0n2
             random_index = random.randint(head,tail)
@@ -45,5 +46,6 @@ class Solution:
         for index in range(k,size):
             top = L[0]
             if nums[index] > top:
+                #弹出并返回最小值，然后将heapqreplace方法中item的值插入到堆中
                 heapq.heapreplace(L,nums[index])
         return L[0]

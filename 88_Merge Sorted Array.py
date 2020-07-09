@@ -44,6 +44,28 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        size_index = len(nums1) - 1
+        m_index = m - 1
+        n_index = n - 1
+        while n_index >= 0:
+            if m_index < 0:
+                nums1[:n_index+1] = nums2[:n_index+1]
+                break
+
+            if nums1[m_index] > nums2[n_index]:
+                nums1[m_index],nums1[size_index] = nums1[size_index],nums1[m_index]
+                m_index -= 1
+            else:
+                nums1[size_index] = nums2[n_index]
+                n_index -= 1
+            size_index -= 1
+            
+            
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
         #思路，从后面开始比，然后放
         size = len(nums1) - 1
         n = n-1
