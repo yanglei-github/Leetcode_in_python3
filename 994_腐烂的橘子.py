@@ -18,7 +18,7 @@ class Solution:
                 count += 1
             else:
                 break
-        if count == row * col:
+        if count == row:
             return 0
         
         for i in range(row):

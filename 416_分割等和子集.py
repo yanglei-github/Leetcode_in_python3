@@ -29,7 +29,7 @@ class Solution:
                     dp[i][j] = True
                     continue
                 if nums[i] < j:
-                    #在[0,i]这个区间选择某些数是他们的和恰好等于j,这个时候针对区间尾nums[i]可以选择选或者不选
+                    #在[0,i]这个区间选择某些数使他们的和恰好等于j,这个时候针对区间尾nums[i]可以选择选或者不选
                     dp[i][j] = dp[i-1][j] or dp[i-1][j-nums[i]]
         return dp[-1][-1]
 
