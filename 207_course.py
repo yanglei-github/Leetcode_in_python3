@@ -12,6 +12,7 @@ Caution:用bfs判断有向图是否有环--拓扑排序
 1.邻接表存的是每个node的出node
 2.入度表存的是每个node的母node的个数
 3.每个node都会从queue中弹出一次
+4.无向图的邻接表和有向图的不一样，无向图必须找到所有与他相连的
 '''
 
 class Solution:

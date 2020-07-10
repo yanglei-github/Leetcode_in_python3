@@ -15,6 +15,7 @@ Created on Fri Jun 12 19:54:01 2020
 '''
 0625 updated:start_index的重要性，第一次第一层找到一个数之后，在第二次选取第一层数后，后面的递归应该都从这个数后的所有数中寻找解集
 0702 candidates[i] <= target 这里必须需要考虑等于的情况
+0710 对于每层的解空间呈线性缩小的情况，引入start_index可以有效记录解空间，此时无须引入第三方used来记录更新每层可用的解空间
 '''
 
 class Solution:
@@ -26,6 +27,7 @@ class Solution:
             if target == 0:
                 res.append(path[:])
                 return
+            #引入start_idnex的目的在于减少重复选数
             for i in range(start, len(candidates)):
                 #注意这里必须添加=号
                 if candidates[i] <= target:

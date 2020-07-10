@@ -8,12 +8,26 @@ Created on Tue Feb 18 19:45:19 2020
 '''
 0701
 一开始需要某个存储空间保留暂时找不到答案的元素内容,在下一次寻找是否满足过程中实际上存在判断的顺序，可以用stack来实现
+0709
+区分清楚stack和queue
 '''
+
+class Solution:
+    def dailyTemperatures(self, T: List[int]) -> List[int]:
+        stack = []
+        res = [0 for _ in range(len(T))]
+        for index in range(len(T)):
+            while stack and T[index] > T[stack[-1]]:
+                res[stack.pop()] = index - stack[-1]
+            stack.append(index)
+        return res
+    
 class Solution:
     def dailyTemperatures(self, T: List[int]) -> List[int]:
         index_stack = [0]
         res = [0 for _ in range(len(T))]
         for i in range(1, len(T)):
+            #注意stack需要判断特殊情况，如果stack一开始是空，会造成out of range
             while index_stack and T[index_stack[-1]] < T[i]:
                 res[index_stack.pop()] = i - index_stack[-1]
             #每次判断完小loop后需要将当前value对应的index加入stack中

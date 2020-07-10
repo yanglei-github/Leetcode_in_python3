@@ -20,6 +20,7 @@ class Solution:
                 return
             for i in range(len(nums)):
                 if not visited[i]:
+                    #如果visited[i-1] == True说明nums[i-1]正在被上一层选着呢，这个时候即使nums[i] == nums[i-1]也不会发生重复，因为他是下一层的选择
                     if i > 0 and nums[i] == nums[i-1] and not visited[i-1]:
                         continue
                     visited[i] = True

@@ -5,7 +5,7 @@ Created on Sat May 16 15:51:10 2020
 @author: leiya
 """
 
-
+#不能用start_index来减小子空间，只能用used来判断子空间取值
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         #设置现场

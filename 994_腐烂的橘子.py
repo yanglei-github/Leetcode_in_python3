@@ -5,7 +5,42 @@ Created on Tue Jun  9 09:14:29 2020
 @author: leiya
 """
 
-
+'''
+0710
+'''
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        row = len(grid)
+        col = len(grid[0])
+        queue = []
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == 2:
+                    queue.append((i,j))
+        flag = 0
+        #如果一开始就没有新鲜的橘子那么直接返回0
+        for each_row in grid:
+            if 1 in each_row:
+                flag = 1
+        if flag == 0:
+            return 0
+        count = -1
+        while queue:
+            current_len = len(queue)
+            for _ in range(current_len):
+                tempx,tempy = queue.pop(0)
+                for x,y in [(1,0),(-1,0),(0,-1),(0,1)]:
+                    curx = x + tempx
+                    cury = y + tempy
+                    if 0 <= curx < row and 0 <= cury < col and grid[curx][cury] == 1:
+                        grid[curx][cury] = 2
+                        queue.append((curx,cury))
+            count += 1
+        for each_row in grid:
+            if 1 in each_row:
+                return -1
+        return count
+    
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         queue = []

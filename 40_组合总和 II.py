@@ -21,6 +21,10 @@ class Solution:
             for i in range(start_index, len(candidates)):
                 if candidates[i] <= target:
                     #i==start_index意味着如果是这一层第一次选元素是不存在重复的可能性的
+                    #注意区分这里i+1和全排列的区别，
+                    #全排列为什么不能这样用start_index来做是因为全排列可能会选择之前用过但是弹出的元素，即全排列可能会向回找元素
+                    #组合总和实际上不存在反向找元素，这是由这道题的性质决定的，每一次的解空间都在线性正向缩小，
+                    #全排列的解空间不是线性缩小的，所以要用到used标记哪些是可用的解空间
                     if i > start_index and candidates[i] == candidates[i-1]:
                         continue
                         

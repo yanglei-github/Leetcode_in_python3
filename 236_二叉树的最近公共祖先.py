@@ -8,7 +8,7 @@ Created on Sun May 10 09:35:50 2020
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if not root:
-            return root
+            return None
         if root is q or root is p:
             return root
         #最高层面上来看的话left中包含的是在root的左子树中p,q存在的最深层的公共祖先，也可能返回的就是p,q中一个node所在的位置，
@@ -16,7 +16,7 @@ class Solution:
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
         if not left and not right:
-            return
+            return None
         elif not left and right:
             return right
         elif left and not right:

@@ -4,7 +4,31 @@ Created on Thu Aug 29 12:49:25 2019
 
 @author: leiya
 """
-
+#0709 sliding window
+'''
+这道题的难点在于如果start,end从某个位置开始，可能会一直一样，这样在循环里可能没办法把这部分统计进去，
+可以根据start,end最后是否重合来把这部分特殊情况解决掉
+注意每次改变滑动窗口以后需要移动窗口指针
+'''
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        res = '1'
+        for i in range(2,n+1):
+            #每次要用新的new_res,start
+            new_res = ''
+            start = 0
+            for end in range(len(res)):
+                if res[end] != res[start]:
+                    new_res += str(end-start) + res[start]
+                    start = end
+            if end != start:
+                new_res += str(end-start+1) + res[start]
+            else:
+                new_res += '1' + res[end]
+            res = new_res
+        return res
+    
+    
 #updated 0629 这道题只能通过j与j+1比较，有题目本身的特性决定，每次通过小循环找到重复数字的个数
 class Solution:
     def countAndSay(self, n: int) -> str:

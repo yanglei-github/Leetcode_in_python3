@@ -5,7 +5,7 @@ Created on Sun Jun 14 16:40:54 2020
 @author: leiya
 """
 
-
+#线性缩小解空间，可以引入start_index
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def dfs(nums,path,res,start):

@@ -15,6 +15,7 @@ class Solution:
         #相邻元素需要染上不同的颜色
         color = {}
         for node in range(len(graph)):
+            #可能存在不相连的独立节点或者独立的节点集，因此要遍历所有的nodes,保证所有nodes都可以上色
             if node not in color:
                 queue = [node]
                 color[node] = 0
