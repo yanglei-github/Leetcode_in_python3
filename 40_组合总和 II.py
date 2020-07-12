@@ -9,6 +9,9 @@ Created on Sat Jun 13 17:43:06 2020
 ''' 
 i==start_index意味着如果是这一层第一次选元素是不存在重复的可能性的,这意味着如果在同一层中，
 这次选的和上一次选的一样，那么必定是重复了，直接剪枝，否则会出现重复的解
+0712：
+解空间跟排列顺序无关，只需要找过就行，因此不需要用used去标记
+涉及剪枝情况一定要先对nums排序
 '''
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
