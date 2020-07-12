@@ -5,6 +5,30 @@ Created on Wed Feb 12 21:15:34 2020
 @author: leiya
 """
 
+
+
+'''
+0711
+On时间复杂度实现，间隔n一次扫描
+'''
+
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        cur = head
+        fur = cur
+        pre = None
+        for _ in range(n):
+            fur = fur.next
+        #注意判断将头节点去掉的特殊情况
+        if not fur:
+            return head.next
+        while fur:
+            pre = cur
+            cur = cur.next
+            fur = fur.next
+        pre.next = cur.next
+        return head
+    
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
