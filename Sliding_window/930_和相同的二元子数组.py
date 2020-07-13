@@ -6,12 +6,13 @@ Created on Sun Jul 12 14:19:38 2020
 """
 
 '''
-这个转换形式很难想出来，不如采用前缀和来解决这道问题
+参考992，1248
 给定一个0，1数组，你可以选择最多S个1和任意个0，你的选择数减去 给定一个0，1数组，你可以选择最多S - 1个1和任意个0，你的选择数
 '''
 class Solution:
     def numSubarraysWithSum(self, A: List[int], S: int) -> int:
         def atMostK(A, S):
+            #因为用到了atmostK(A,S-1),S要是输入的是0，S-1就是负值了，会出现问题
             if S < 0:
                 return 0
             start = 0

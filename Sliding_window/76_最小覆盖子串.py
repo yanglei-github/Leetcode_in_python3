@@ -6,6 +6,54 @@ Created on Sun Jul 12 09:51:05 2020
 """
 
 
+
+'''
+0713
+对输出的更新要放在while内，题目要性质决定，因此最后要加min_len == float('inf')判断是否有特殊情况
+'''
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        start = 0
+        min_len = float('inf')
+        res = '' 
+        target = {}
+        counter = {}
+        for i in t:
+            if i not in target:
+                target[i] = 1
+            else:
+                target[i] += 1
+            #这里省了很大力气，因为counter和target现在key个数一样，我们比较的时候只需要比较counter中key的value是否严格小于target即可
+            counter[i] = 0
+        
+        def contains(counter, target):
+            for k in counter:
+                '''
+                千万注意这里是<，不能改成!=，因为counter[k] > target[k]是允许的，
+                counter[k]只要不比target[k]小就ok,小说明元素包含不全
+                '''
+                if counter[k] < target[k]:
+                    return False
+            return True
+
+        for end in range(len(s)):
+            if s[end] in counter:
+                counter[s[end]] += 1
+            #while start < len(s) and contains(counter, target):
+            while contains(counter, target):
+                if end - start + 1 < min_len:
+                    min_len = end-start+1
+                    res = s[start:end + 1]
+                if s[start] in target:
+                    counter[s[start]] -= 1
+                start += 1
+
+        if min_len == float('inf'):
+            return ""  
+        else:
+            return res
+        
+        
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         start = 0
