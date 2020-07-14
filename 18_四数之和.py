@@ -30,6 +30,13 @@ class Solution:
                             L=L+1
                         while L<R and nums[R]==nums[R-1]:
                             R=R-1
+                        '''
+                        虽然不知道为什么这里这么写没有报错，但我觉得上面的条件应该是
+                        while L+1 < R and nums[L]== nums[L+1]:
+                            L +=1
+                        while L < R -1 and nums[R] == nums[R-1]:
+                            R -=1
+                        '''
                         L=L+1
                         R=R-1
                     elif nums[i]+nums[j]+nums[L]+nums[R]>target:
