@@ -17,7 +17,6 @@ Created on Sun Sep  1 14:34:16 2019
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         cur = head
-        #这里while中加入cur.next有妙用，相当于更新了每次cur.next的值，使得循环不会是死循环
         while cur and cur.next:
             if cur.val == cur.next.val:
                 cur.next = cur.next.next
