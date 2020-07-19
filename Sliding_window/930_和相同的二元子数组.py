@@ -11,6 +11,25 @@ Created on Sun Jul 12 14:19:38 2020
 '''
 class Solution:
     def numSubarraysWithSum(self, A: List[int], S: int) -> int:
+        def atmost(A,S):
+            if S < 0:
+                return 0
+            start = 0
+            count = 0
+            count_one = 0
+            for end in range(len(A)):
+                if A[end] == 1:
+                    count_one += 1
+                while count_one > S:
+                    if A[start] == 1:
+                        count_one -= 1
+                    start += 1
+                count += end-start+1
+            return count 
+        return atmost(A,S) - atmost(A,S-1)
+    
+class Solution:
+    def numSubarraysWithSum(self, A: List[int], S: int) -> int:
         def atMostK(A, S):
             #因为用到了atmostK(A,S-1),S要是输入的是0，S-1就是负值了，会出现问题
             if S < 0:

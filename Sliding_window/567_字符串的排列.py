@@ -7,6 +7,19 @@ Created on Sun Jul 12 17:23:16 2020
 
 #定长滑动窗口
 #based on 28
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        from collections import Counter
+        start = 0
+        ori_ = Counter(s1)
+        for end in range(len(s1)-1,len(s2)):
+            if ori_ == Counter(s2[start:end+1]):
+                return True
+            start += 1
+        return False
+    
+    
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         import collections

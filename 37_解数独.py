@@ -48,6 +48,10 @@ class Solution:
                             dfs(i, j+1)
                         else:
                             dfs(i+1, 0)
+                        #这道题为什么需要self.flag，因为不想让到了终止条件后再继续执行回退操作
+                        
+                        #为什么在全排列中不用self.flag，因为那里面已经把结果记录在了res，最后返回res即可，这道题没有返回值
+                        #因此不能把恰好满足条件的结果存在第三方空间，这样会造成最后回退时候又将board复原
                         if self.flag: 
                             return
                         board[i][j] = '.'

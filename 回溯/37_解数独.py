@@ -7,6 +7,10 @@ Created on Mon Jun 15 14:38:28 2020
 
 '''
 0717
+0718:注意str与int的转换
+     区别于一般回溯法的难点在于我们需要通过递归这种方式每次移动当前方格的位置，这道题不单单需要
+     考虑解空间的变化，还需要去考虑不停的移动位置，跟给所有位置找到合适的解空间，一旦回溯法和图相结合，dfs,bfs就不再仅仅充当线性深入
+     下一层的probe,而是更加多变的指向下一层的不同选择
 '''
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
