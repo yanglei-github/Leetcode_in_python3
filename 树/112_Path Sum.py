@@ -14,6 +14,7 @@ Created on Mon Jan 27 17:28:29 2020
 
 '''
 0721
+dfs的意义是能不能在当前给定的root代表的树中找到一组路径和为sum，这个模型最终重复到只有一个root的时候，如果只有一个root的时候不满足sum，那么就不对
 '''
 class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
