@@ -5,6 +5,26 @@ Created on Fri May 15 12:52:40 2020
 @author: leiya
 """
 
+'''
+0725
+'''
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        adict = {}
+        adict[0] = 1
+        sum = 0
+        count = 0
+        for num in nums:
+            sum += num
+            if sum - k in adict:
+                count += adict[sum-k]
+            if sum not in adict:
+                adict[sum] = 1
+            else:
+                adict[sum] += 1
+        return count
+    
+    
 #前缀和+哈希表优化(存储前缀和各个值出现的个数)
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:

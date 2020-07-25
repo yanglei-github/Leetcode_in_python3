@@ -1,5 +1,5 @@
 # Leetcode_in_python3
-This repo includes solutions in Python3 for the most popular and common question in Leetcode.
+This repo includes solutions in Python3 for the most popular and common questions in Leetcode.
 
 Some important questions have been recorded as vedio tutorials and uploaded into my Bilibili channel.
 
