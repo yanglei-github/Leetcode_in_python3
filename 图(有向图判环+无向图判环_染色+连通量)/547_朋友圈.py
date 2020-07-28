@@ -18,18 +18,18 @@ adacency每次找一个node，然后根据adjacency把与他相连的node全都�
 
 class Solution:
     def findCircleNum(self, M: List[List[int]]) -> int:
-        res = 0
-        used = [False for _ in range(len(M))]
-        row = len(M) 
-        col = len(M)
-        count = 0
+        row = len(M)
         adjacency = [[] for _ in range(row)]
         for i in range(row):
-            for j in range(col):
+            for j in range(row):
                 if i != j and M[i][j] == 1:
-                    adjacency[i].append(j)
-                    adjacency[j].append(i)
-        for node in range(len(adjacency)):
+                    if j not in adjacency[i]:
+                        adjacency[i].append(j)
+                    if i not in adjacency[j]:
+                        adjacency[j].append(i)
+        count = 0
+        used = [False for _ in range(row)]
+        for node in range(row):
             if not used[node]:
                 used[node] = True
                 queue = [node]
@@ -38,9 +38,10 @@ class Solution:
                     for next_node in adjacency[pop_node]:
                         if not used[next_node]:
                             used[next_node] = True
-                            queue.append(next_node)    
+                            queue.append(next_node)
                 count += 1
         return count
+    
     
 class Solution:
     def findCircleNum(self, M: List[List[int]]) -> int:

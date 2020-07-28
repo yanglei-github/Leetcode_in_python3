@@ -7,6 +7,7 @@ Created on Mon Jun 15 08:45:10 2020
 
 '''
 0702 形参过多，形参顺序不要传错位
+0728: 用start_index来收缩每层的解空间范围
 '''
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:

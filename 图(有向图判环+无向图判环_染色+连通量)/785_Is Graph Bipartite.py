@@ -22,6 +22,10 @@ class Solution:
                 queue = [node]
                 color[node] = 0
                 while queue:
+                    '''
+                    更宏观一点的理解为：queue中的node始终是染过色的node，因此在寻找该node相邻的node时候，对于染过色的相邻node无须再加入queue中
+                    因为必然在前面的某一层中我们将该相邻node染色后加入到queue中，已经访问过了，没必要重新访问
+                    '''
                     pop_node = queue.pop(0)
                     for next_node in graph[pop_node]:
                         #没染色就染上

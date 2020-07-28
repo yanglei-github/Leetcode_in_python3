@@ -12,6 +12,8 @@ i==start_index意味着如果是这一层第一次选元素是不存在重复的
 0712：
 解空间跟排列顺序无关，只需要找过就行，因此不需要用used去标记
 涉及剪枝情况一定要先对nums排序
+
+0728:注意 i>start_index,这个条件表示当前取到的数字i不能是这一层第一个选到的数字index
 '''
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
