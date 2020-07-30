@@ -5,14 +5,31 @@ Created on Mon Jun 15 10:59:52 2020
 @author: leiya
 """
 
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+'''
+0729
+'''
         
-
-
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
+        path = ''
+        res = []
+        '''回溯法，只不过在树中，可以直接通过上一个root找到下一个可以寻找的位置
+        比如说左边node没有，那么我可以立刻根据root去找右边的node,实际上可以理解为我在每一层里可以找到的解空间
+        只有两种可能，左node，和右node，左边不行就找右边
+        '''
+        def dfs(res,path,root):
+            if not root:
+                return []
+            path += str(root.val)
+            if not root.left and not root.right:
+                res.append(path[:])
+                return
+            path += '->'
+            dfs(res,path,root.left)
+            dfs(res,path,root.right)
+        dfs(res,path,root)
+        return res
+    
 #遍历出所有二叉树的路径
     def binaryTreePaths(self, root: TreeNode):
         #明显dfs

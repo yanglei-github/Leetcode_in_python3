@@ -10,6 +10,7 @@ Created on Thu Jul  9 22:25:07 2020
 节点间关系平等，因此是无向图，无向图的邻接表必须清楚的找到所有与该节点相连的node
 而有向图的邻接表只需要找到该节点的出node，这是两者很大的区别
 此外，无向图有无环可用并查集判断，有向图有无环可用拓扑排序（邻接表+入度表）判断
+0729: 需要留意node从0还是从1开始计数
 '''
 class Solution:
     def possibleBipartition(self, N: int, dislikes: List[List[int]]) -> bool:
