@@ -7,8 +7,10 @@ Created on Tue Jul 21 18:31:04 2020
 
 
 '''
-其实涉及树的回溯不用写出明确的回溯三步
+0730
+树与回溯
 '''
+
 
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
@@ -20,7 +22,9 @@ class Solution:
             
             if not root.left and not root.right and root.val == sum:
                 path += [root.val]
+                #path.append(root.val)
                 res.append(path[:])
+                return
             
             dfs(root.left,path + [root.val], sum - root.val)
             dfs(root.right,path + [root.val], sum - root.val)
@@ -29,6 +33,58 @@ class Solution:
 
         dfs(root, path, sum)
         return res
+
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+        res = []
+        path = []
+        def dfs(root,path,sum):
+            if not root: 
+                return 
+            
+            if not root.left and not root.right and root.val == sum:  
+                path.append(root.val)
+                res.append(path[:])
+                path.pop()
+                return
+            #联想全排列
+            '''
+            for i in range(len(nums)):
+                path.append()
+                dfs()
+                path.pop()
+            '''
+            path.append(root.val)
+            dfs(root.left,path, sum - root.val)
+            path.pop()
+            path.append(root.val)
+            dfs(root.right,path, sum - root.val)
+            path.pop()
+            
+        dfs(root, path, sum)
+        return res
+    
+    
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+        res = []
+        if not root:
+            return []
+        
+        def dfs(root, path, sum):
+            if root.left is None and root.right is None:
+                if sum == 0:
+                    res.append(path[:])
+                return 
+                
+            if root.left:
+                dfs(root.left, path+[root.left.val], sum-root.left.val)
+                
+            if root.right:
+                dfs(root.right, path+[root.right.val], sum-root.right.val)
+                
+        dfs(root, [root.val], sum-root.val)
+        return res 
     
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
