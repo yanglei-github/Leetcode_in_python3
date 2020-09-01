@@ -5,7 +5,13 @@ Created on Sun Jul 19 17:02:10 2020
 @author: leiya
 """
 
+'''
+0812 
+python3里heapq可以对编译器自有变量类型组成的元组进行比较;
+比较的机制是从元组首位0开始，即遇到相同，就比较元组下一位，比如(1,2), (1,3)，前者比后者小。
 
+
+'''
 #首先把所有链表里的第一个node放入最小堆，即构建大小为K的最小堆，每次弹出最小的
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:

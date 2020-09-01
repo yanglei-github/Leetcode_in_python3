@@ -41,6 +41,7 @@ class Solution:
             return res
         else:
             res[0] = left
+        #left = 0
         right = len(nums) - 1
         while left < right:
             mid = (left+right+1) // 2

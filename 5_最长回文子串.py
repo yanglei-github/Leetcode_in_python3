@@ -18,6 +18,7 @@ class Solution:
             dp[i][i] = True
         for j in range(1,length):
             for i in range(j):
+                #注意只有两个元素时的特殊情况
                 if s[i] == s[j]:
                     if j-i < 3:
                         dp[i][j] = True

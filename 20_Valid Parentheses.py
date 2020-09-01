@@ -9,7 +9,27 @@ Created on Mon Aug 26 19:25:08 2019
 0701:
     1.stack如果没有的情况需要特殊判断，比如说当前s[i]不再adict中但是stack中又没有东西，那么明显错了
     2.最后遍历完s后stack里有东西也不行，相当于没有匹配完全
+0814:
+    更细致的解体步骤
 '''
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        adict = {'(':')','[':']','{':'}'}
+        stack = []
+        for i in range(len(s)):
+            if s[i] in adict.keys():
+                stack.append(s[i])
+            else:
+                if stack and adict[stack[-1]] == s[i]:
+                    stack.pop()
+                else:
+                    return False
+        if not stack:
+            return True
+        else:
+            return False
+        
 class Solution:
     def isValid(self, s: str) -> bool:
         #stack

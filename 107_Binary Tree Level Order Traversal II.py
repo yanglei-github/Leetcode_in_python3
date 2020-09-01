@@ -5,6 +5,11 @@ Created on Wed Sep  4 15:47:52 2019
 @author: leiya
 """
 
+
+'''
+0901 updated
+reversed返回的为对象地址，此处需要单独转换一步，sorted仍然返回的是对象本身，注意区别
+'''
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -20,7 +25,8 @@ dfs适合搜索全部的解，因为要搜索全部的解，在记录路径的�
 而bfs搜索过程中，遇到离根最近的解，并没有什么用，也必须遍历完整棵搜索树。
 bfs是浪费空间节省时间，dfs是浪费时间节省空间。因为dfs要走很多的路径，
 可能都是没用的，（做有些题目的时候要进行剪枝，就是确定不符合条件的就可以结束，以免浪费时间，否则有些题目会TLE）；
-而bfs可以走的点要存起来，需要队列，因此需要空间来储存，但是快一点。'''
+而bfs可以走的点要存起来，需要队列，因此需要空间来储存，但是快一点。
+'''
 
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
@@ -38,7 +44,9 @@ class Solution:
                 if cur_node.right:
                     queue.append(cur_node.right)
             result.append(vals)
-        return reversed(result)
+        
+        #reversed返回的为对象地址，此处需要单独转换一步，sorted仍然返回的是对象本身，注意区别
+        return list(reversed(result))
 
 
 class Solution:
@@ -59,7 +67,7 @@ class Solution:
             
             result.append(vals)
             current_level = next_level
-        return reversed(result)
+        return list(reversed(result))
     
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
@@ -77,5 +85,5 @@ class Solution:
                 
             current = next_level
             result.append(vals)
-        return reversed(result)
+        return list(reversed(result))
     
