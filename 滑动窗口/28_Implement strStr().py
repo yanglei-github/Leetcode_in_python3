@@ -16,6 +16,7 @@ class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         #定长滑动窗口
         start = 0
+        '''当 needle 是空字符串时haystack[0:0]返回也是0，即haystack[start:end+1] == needle成立，函数返回0'''
         for end in range(len(needle)-1,len(haystack)):
             if haystack[start:end+1] == needle:
                 return start
