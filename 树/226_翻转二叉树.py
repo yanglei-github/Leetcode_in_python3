@@ -8,7 +8,7 @@ Created on Fri May  8 11:57:52 2020
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if not root:
-            return 
+            return None
         root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
         return root
     

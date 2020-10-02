@@ -12,16 +12,16 @@ class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         adict = {}
         adict[0] = 1
-        sum = 0
+        cur_sum = 0
         count = 0
         for num in nums:
-            sum += num
-            if sum - k in adict:
-                count += adict[sum-k]
-            if sum not in adict:
-                adict[sum] = 1
+            cur_sum += num
+            if cur_sum - k in adict:
+                count += adict[cur_sum-k]
+            if cur_sum not in adict:
+                adict[cur_sum] = 1
             else:
-                adict[sum] += 1
+                adict[cur_sum] += 1
         return count
     
     
