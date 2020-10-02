@@ -1,4 +1,8 @@
 # Leetcode_in_python3
+Dev version:
+
+add solutions of 剑指Offer and data algos.
+
 This repo includes solutions in Python3 for the most popular and common questions in Leetcode.
 
 Some important questions have been recorded as vedio tutorials and uploaded into my Bilibili channel.
