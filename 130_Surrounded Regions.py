@@ -5,6 +5,44 @@ Created on Sat Apr 11 19:20:21 2020
 @author: leiya
 """
 
+
+"""
+updated 0725
+"""
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        row = len(board)
+        col = len(board[0])
+        def bfs(board,x,y):
+            if board[x][y] == 'O':
+                board[x][y] = 'temp'
+                queue = [(x,y)]
+                while queue:
+                    tempx,tempy = queue.pop(0)
+                    for i,j in [(1,0),(-1,0),(0,1),(0,-1)]:
+                        curx = tempx + i
+                        cury = tempy + j
+                        if 0<=curx<row and 0<=cury<col and board[curx][cury]=='O':
+                            board[curx][cury] = 'temp'
+                            queue.append((curx,cury))
+        
+        for j in [0,col-1]:
+            for i in range(row):
+                bfs(board,i,j)
+        for i in [0,row-1]:
+            for j in range(col):
+                bfs(board,i,j)
+        for i in range(row):
+            for j in range(col):
+                if board[i][j] == 'temp':
+                    board[i][j] = 'O'
+                elif board[i][j] == 'O':
+                    board[i][j] = 'X'
+        return board
+    
 '''
 0710 updated
 '''

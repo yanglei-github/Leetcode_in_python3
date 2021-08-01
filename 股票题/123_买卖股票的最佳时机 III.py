@@ -12,8 +12,9 @@ class Solution:
             return 0
         dp = [[0,0,0,0] for _ in range(len(prices))]
         dp[0][0] = -prices[0]
-        #因为在更新dp[i][3]的时候可能会出现比0小的数，因为dp[i-1][2]-prices[i]
-        #所以这个时候dp[i][3]不能默认是0，相反dp[i][4]就可以默认是0
+        #因为在更新dp[i][2]的时候可能会出现比0小的数，因为dp[i-1][1]-prices[i]
+        #所以这个时候dp[i][2]不能默认是0，相反dp[i][3]就可以默认是0
+        #dp[0][1]不需要更新是因为第一次卖出的时候一定式prices[i] > dp[i-1][0]才会卖出
         dp[0][2] = float('-inf')
         
 

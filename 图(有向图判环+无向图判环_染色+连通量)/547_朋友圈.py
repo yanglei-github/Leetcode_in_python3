@@ -28,6 +28,7 @@ class Solution:
                     if i not in adjacency[j]:
                         adjacency[j].append(i)
         count = 0
+        #used数组次数就是记录染色的方式
         used = [False for _ in range(row)]
         for node in range(row):
             if not used[node]:

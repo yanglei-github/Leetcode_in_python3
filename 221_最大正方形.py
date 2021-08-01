@@ -4,7 +4,7 @@ Created on Fri May  8 09:47:27 2020
 
 @author: leiya
 """
-#矩阵中的的数据时string类型而非int类型
+#矩阵中的的数据是string类型而非int类型
 #dp[i][j]状态指[i,j]为右下角可以产生的最大正方形
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:

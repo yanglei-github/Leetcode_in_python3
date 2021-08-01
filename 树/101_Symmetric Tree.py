@@ -12,6 +12,22 @@ updated 0626
 0726:isSame 返回的是bool类型，如果直接写一个isSame(),是没有返回值的，需要写成return isSame()
 '''
 
+
+
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        def dfs(left,right):
+            if not left and not right:
+                return True
+            if left and right and left.val == right.val and dfs(left.left,right.right) and dfs(left.right,right.left):
+                return True
+            else:
+                return False
+        if not root:
+            return True
+        return dfs(root.left,root.right)
+    
+
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         def dfs(left,right):
