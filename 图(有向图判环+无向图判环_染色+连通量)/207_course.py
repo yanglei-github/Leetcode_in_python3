@@ -23,6 +23,7 @@ class Solution:
             adajancy[node2].append(node1)
             indegree[node1] += 1
         queue = []
+        #从入度为零的地方开始bfs‘
         for node in range(len(indegree)):
             if indegree[node] == 0:
                 queue.append(node)

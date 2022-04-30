@@ -6,8 +6,8 @@ Created on Sun Jul 12 17:23:16 2020
 """
 
 #定长滑动窗口
-#based on 28
-
+# based on 28
+# 定长滑动窗口，手动移动start指针，自动移动end指针，好处是end指针可以根据规定的范围知道何时自动停止
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         from collections import Counter

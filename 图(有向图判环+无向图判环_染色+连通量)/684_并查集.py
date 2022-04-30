@@ -33,8 +33,8 @@ class DSU:
         return
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
-        #有一条冗余的链接，可以一条边一条边的进行判断，当发现这条边是想要链接的两个点已
-        #经通过跟节点相连了，那么就没有必要链接他们了
+        #有一条冗余的连接，可以一条边一条边的进行判断，当发现这条边是想要连接的两个点已
+        # 经通过根节点相连了，那么就没有必要连接他们了
         a = set()
         for i in edges:
             a.add(i[0])

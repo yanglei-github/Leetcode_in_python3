@@ -37,6 +37,7 @@ class Solution(object):
             count = count_num(matrix,mid)
             if count < k:
                 left = mid + 1
+            #等于时候一定是在mid及mid之前，这块保证了为何left,right求中位数以后，最后出来的left,right一定式矩阵中有的数据
             else:
                 right = mid
         return left

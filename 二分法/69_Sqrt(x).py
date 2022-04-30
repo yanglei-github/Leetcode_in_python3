@@ -10,6 +10,7 @@ Created on Sun Sep  1 12:54:31 2019
 #69,35题都是我们可以确定解一定在left,right可以遍历到的位置，所以左后while left == right弹出后无须进一步判断left,right最后指向的同一个位置是否是题解
 #换句话说，一定有解，那么排除了所有不可能的解，最后的解一定是left或者right指向的解，无须进一步判断
 #0620 updated:切换二分法模板
+#x=4可以作为求mid是取左中位数还是右中位数的特例
 class Solution:
     def mySqrt(self, x: int) -> int:
         left = 0

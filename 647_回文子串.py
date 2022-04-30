@@ -19,6 +19,30 @@ Created on Wed May 13 19:20:05 2020
 - 空间复杂度：O（N^2）
 """
 
+
+#0319
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        if not s:
+            return 0
+        size = len(s)
+        dp = [[False for _ in range(size)] for _ in range(size)]
+        count = 0
+        for i in range(size):
+            dp[i][i] = True
+            count += 1
+        for j in range(1,size):
+            for i in range(j):
+                if s[i] == s[j]:
+                    if j-i < 3:
+                            dp[i][j] = True
+                            count += 1
+                    else:
+                        dp[i][j] = dp[i+1][j-1]
+                        if dp[i][j]:
+                            count += 1
+        return count
+    
 #updated 0630 基本和5一样的思路,就是判断回文的个数是基于判断各种情况下是否是回文，5是判断所有回文中最长的那个，都是dp之后的变体
 class Solution:
     def countSubstrings(self, s: str) -> int:

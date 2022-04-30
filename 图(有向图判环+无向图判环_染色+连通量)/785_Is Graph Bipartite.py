@@ -10,12 +10,15 @@ Created on Tue Apr 14 11:07:02 2020
 从node0开始bfs一层一层的染色
 0713
 染色问题的输入应该规划化为邻接表的形式，注意这里的邻接表是无向图的邻接表，要区别于有向图的邻接表
+20220304
+标准无向图的染色问题，可通过547题巩固
 '''
 
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         #相邻元素需要染上不同的颜色
         color = {}
+        #for循环的作用是为了解决非连通图的问题
         for node in range(len(graph)):
             #可能存在不相连的独立节点或者独立的节点集，因此要遍历所有的nodes,保证所有nodes都可以上色，即图可能是不连通的
             if node not in color:
