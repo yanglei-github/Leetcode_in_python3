@@ -7,5 +7,10 @@ The link is: https://space.bilibili.com/15965981
 
 Welcome to follow me or sumbit issues in this repo.
 
-Note:
+## Note:
 This repo will be updated everyday, which means new methods or comments will be added into older version files.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yanglei-github/Leetcode_in_python3&type=Timeline)](https://star-history.com/#yanglei-github/Leetcode_in_python3&Timeline)
+
